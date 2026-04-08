@@ -372,11 +372,13 @@ function disp_current(){
             cell.classList.add('imp-data');
             cell.textContent = tab[cur_ver][i-1][j];
             if(tab[cur_ver][i-1][j]==1){
-                cell.textContent='';
+                cell.textContent=tab[0][i-1][j];
+                cell.style.color="white";
                 cell.style.backgroundColor = "green";
             }
             if(tab[cur_ver][i-1][j]==0){
-                cell.textContent='';
+                cell.textContent=tab[0][i-1][j];
+                cell.style.color="white";
                 cell.style.backgroundColor = "red";
             }
             row.appendChild(cell);
