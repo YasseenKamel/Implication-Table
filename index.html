@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSM Dynamic Table Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container">
+        
+        <div class="controls">
+            <div class="input-group">
+                <label style="margin-right: 15px;">Number of Inputs</label>
+                <input type="text" id="inputN" value="1" maxlength="1">
+            </div>
+            <div class="input-group">
+                <label style="margin-right: 15px;">Number of Outputs</label>
+                <input type="text" id="inputM" value="1" maxlength="1">
+            </div>
+            <div class="radio-group">
+                <label class="radio-label">
+                    <input type="radio" name="fsmType" value="Mealy" checked>
+                    <span class="radio-custom"></span>
+                    Mealy
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="fsmType" value="Moore">
+                    <span class="radio-custom"></span>
+                    Moore
+                </label>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="fsmTable">
+                
+            </table>
+        </div>
+        <div>
+            <button class="btn btn-primary" type="button" style="margin-top: 30px;" id="Generate_imp" onclick="displayImpTable()">Generate implication table</button>
+        </div>
+        <div id="impTableContainer"></div>
+        <div id="navBtnContainer"></div>
+        <div id="eqContainer"></div>
+        <div id="staticTableContainer"></div>
+        <div id="jsonTableContainer"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

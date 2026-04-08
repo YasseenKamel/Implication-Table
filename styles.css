@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f5f5;
+    height: 100vh;
+    overflow: auto;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: #333;
+    color: white;
+    padding: 15px 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.controls {
+    padding: 25px 20px;
+    border-bottom: 3px solid #888;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: #fafafa;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.input-group input {
+    width: 80px;
+    height: 35px;
+    padding: 0 12px;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    background: #e7f3ff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+.radio-group {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    user-select: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.radio-label:hover {
+    background: #e9ecef;
+}
+
+.radio-custom {
+    width: 22px;
+    height: 22px;
+    border: 3px solid #333;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+
+.radio-label input:checked + .radio-custom {
+    background: #007bff;
+    border-color: #007bff;
+}
+
+.radio-label input:checked + .radio-custom::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.table-container {
+    overflow: auto;
+    background: white;
+    min-height: 200px;
+}
+
+#fsmTable {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    font-family: monospace;
+    font-size: 14px;
+    table-layout: fixed;
+    background: white;
+}
+
+#fsmTable th,
+#fsmTable td {
+    height: 45px;
+    border: 2px solid #888;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    padding: 2px 4px;
+    box-sizing: border-box;
+}
+
+#fsmTable th {
+    background: linear-gradient(145deg, #666, #555);
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#fsmTable th:first-child {
+    width: 50px;
+    min-width: 50px;
+}
+
+#fsmTable th:not(:first-child) {
+    min-width: 85px;
+}
+
+.data-cell,
+.state-cell,
+.output-cell {
+    min-width: 85px;
+    padding: 0;
+}
+
+.data-cell input,
+.state-cell input,
+.output-cell input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 8px 4px;
+    box-sizing: border-box;
+}
+
+.data-cell input:focus,
+.state-cell input:focus,
+.output-cell input:focus {
+    outline: none;
+    background: rgba(173, 216, 230, 0.8);
+    box-shadow: inset 0 0 0 3px #007bff;
+}
+
+.delete-cell {
+    width: 50px;
+    min-width: 50px;
+    background: linear-gradient(145deg, #ff6b6b, #ff5252) !important;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.delete-cell:hover {
+    background: linear-gradient(145deg, #ff4444, #ff0000) !important;
+    transform: scale(1.05);
+}
+
+.last-row .data-cell input,
+.last-row .state-cell input,
+.last-row .output-cell input {
+    background: rgba(240, 250, 240, 0.7) !important;
+}
+
+.state-cell input {
+    background: rgba(255, 100, 100, 0.1);
+}
+
+.state-cell.active input {
+    background: rgba(173, 216, 230, 0.9) !important;
+}
+
+.output-cell input {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.active {
+    background: #add8e6 !important;
+    border-color: #007bff !important;
+    box-shadow: inset 0 0 0 3px #007bff !important;
+    z-index: 5;
+}
+
+/* Scrollbar styling */
+.table-container::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.text-label {
+  margin-right: 15px; /* Adjust the value as needed */
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.imp-label, .imp-data{
+    min-height: 80px; text-align: center;
+  vertical-align: middle;
+}
+
+.imp-data{
+    min-width: 50px; 
+    white-space: pre-wrap;
+    border: 2px solid #888;
+}
+
+#impTableContainer{
+    margin-top:15px;
+}
+
+#staticTableContainer{
+    margin-bottom: 20px;
+}
